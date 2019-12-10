@@ -14,7 +14,7 @@ public class Regex {
 	public boolean validar(String cadena) {
 		boolean resultado = false;
 		
-		// Verficar que los patrones est�n definidos
+		// Verficar que los patrones est�n definidos
 		if (validarPatron(patron)) {
 			// Separa la cadena de entrada en caracteres sueltos
 			String[] caracteres = cadena.split("");
@@ -56,7 +56,7 @@ public class Regex {
 			validadores.add(patron.substring(i, i+5));
 		}
 		
-		// Comparar los validadores si est�n definidos
+		// Comparar los validadores si est�n definidos
 		for (String p: validadores) {
 			if (p.equals(validadorNumeros) || p.equals(validadorMayusculas) || p.equals(validadorMinusculas)) {
 				resultado = true;
@@ -76,8 +76,19 @@ public class Regex {
 		
 	}
 	
-	private boolean validMayuscula(String caraceter) {
-		return false;
+	private boolean validMayuscula(String caracter) {
+		boolean resultado = false;
+		char c = caracter.charAt(0);
 		
+		char[] letras = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z','Á','É','Í','Ó','Ú','Ñ','Ü'};
+		
+		for (char x: letras) {
+			if (x == c) {
+				resultado = true;
+				break;
+			}
+		}
+		
+		return resultado;
 	}
 }
