@@ -71,8 +71,18 @@ public class Regex {
 		
 	}
 	
-	private boolean validMinuscula(String caraceter) {
-		return false;
+	private boolean validMinuscula(String caracter) {
+		
+		char [] caracteres = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ä','ë','ï','ö','ü','á','é','í','ó','ú'};
+		boolean respuesta = false;
+		
+		for(int i=0; i<caracteres.length; i=i++) {
+			if(caracter.equals(caracteres[i])) {
+			respuesta=true;
+			}
+		}
+		
+		return respuesta;
 		
 	}
 	
