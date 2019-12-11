@@ -5,11 +5,11 @@ public class Principal {
 	public static void main(String[] args) {
 		String patronIntroducido = "";
 		String cadenaIntroducida = "";
-		boolean respuestaValidacion = false;
+		int respuestaValidacion = 0;
 		Scanner reader = new Scanner(System.in);
 		
 		System.out.println("Expresiones regulares permitidas: [0-9], [a-z], [A-Z] ");
-		System.out.println("Introduzca la expresi髇 regular que desea utilizar: ");
+		System.out.println("Introduzca la expresi贸n regular que desea utilizar: ");
 		patronIntroducido = reader.next();
 		
 		Regex miRegex = new Regex(patronIntroducido);
@@ -19,14 +19,19 @@ public class Principal {
 		
 		respuestaValidacion = miRegex.validar(cadenaIntroducida);
 		
-		if(respuestaValidacion) {
-			System.out.println("Cadena correcta para la expresi髇 regular introducida");
-		}
-		else {
-			System.out.println("Cadena incorrecta para la expresi髇 regular utilizada");
+		switch (respuestaValidacion) { 
+			case -1:
+				System.out.println("El patr贸n introducido no es v谩lido");
+				break;
+			case 1:
+				System.out.println("Cadena correcta para la expresi贸n regular introducida");
+				break;
+			case 0:
+				System.out.println("Cadena incorrecta para la expresi贸n regular utilizada");
+				break;
 		}
 			
-		
+		reader.close();
 		
 	}
 
