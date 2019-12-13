@@ -1,5 +1,29 @@
+import java.util.ArrayList;
 
 public class Reglas {
+	
+	public ArrayList<String> validarPatron(String expresion) {
+		ArrayList<String> validadores = new ArrayList<String>();
+		final String validadorNumeros = "[0-9]";
+		final String validadorMayusculas = "[A-Z]";
+		final String validadorMinusculas= "[a-z]";
+		
+		if (expresion.length() % 5 == 0) {		
+			// Dividir el patron en validadores individuales
+			for (int i=0;i<expresion.length();i=i+5) {
+				String p = expresion.substring(i, i+5);
+			// Comparar los validadores si están definidos
+				if (!p.equals(validadorNumeros) && !p.equals(validadorMayusculas) && !p.equals(validadorMinusculas)) {
+					validadores.clear();
+					return validadores;
+				} else {
+					validadores.add(p);
+				}
+			}
+		}
+		
+		return validadores;
+	}
 
 	public boolean validNumero(String caracter) {
 		boolean resultado = false;

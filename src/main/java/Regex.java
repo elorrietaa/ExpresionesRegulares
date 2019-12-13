@@ -6,7 +6,7 @@ public class Regex {
 	private final String validadorNumeros = "[0-9]";
 	private final String validadorMayusculas = "[A-Z]";
 	private final String validadorMinusculas= "[a-z]";
-	private ArrayList<String> validadores = new ArrayList<String>();
+	private ArrayList<String> validadores;
 	
 	public Regex(String patron) {
 		this.patron = patron;
@@ -17,7 +17,8 @@ public class Regex {
 		int resultado = 0;
 		
 		// Verficar que los patrones est�n definidos
-		if (validarPatron(patron)) {
+		validadores = misReglas.validarPatron(patron);
+		if (validadores.size() > 0) {
 			// Separa la cadena de entrada en caracteres sueltos
 			String[] caracteres = cadena.split("");
 			
@@ -29,16 +30,22 @@ public class Regex {
 						case validadorNumeros:
 							if (misReglas.validNumero(caracteres[i])) {
 								resultado = 1;
+							} else {
+								resultado = 0;
 							}
 							break;
 						case validadorMayusculas:
 							if (misReglas.validMayuscula(caracteres[i])) {
 								resultado = 1;
+							} else {
+								resultado = 0;
 							}
 							break;
 						case validadorMinusculas:
 							if (misReglas.validMinuscula(caracteres[i])) {
 								resultado = 1;
+							} else {
+								resultado = 0;
 							}
 							break;
 					}
@@ -51,25 +58,6 @@ public class Regex {
 		return resultado;
 	}
 	
-	public boolean validarPatron(String expresion) {
-		boolean resultado = true;
-		
-		if (expresion.length() % 5 == 0) {			
-			// Dividir el patron en validadores individuales
-			for (int i=0;i<patron.length();i=i+5) {
-				validadores.add(patron.substring(i, i+5));
-			}
-			// Comparar los validadores si están definidos
-			for (String p: validadores) {
-				if (!p.equals(validadorNumeros) && !p.equals(validadorMayusculas) && !p.equals(validadorMinusculas)) {
-					resultado = false;
-				}
-			}
-		} else {
-			resultado = false;
-		}
-		
-		return resultado;
-	}
+	
 	
 }
