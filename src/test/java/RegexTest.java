@@ -40,53 +40,5 @@ public class RegexTest {
 		resultado = miRegex6.validarPatron(patron6);
 		assertFalse(resultado);
 	}
-	
-	@Test
-	public void validNumeroTest() {
-		String patron1 = "[0-9]";
-		Regex miRegex1 = new Regex(patron1);
-		
-		String caracter1 = "2";
-		String caracter2 = "a";
-		boolean resultado;
-		
-		resultado = miRegex1.validNumero(caracter1);
-		assertTrue(resultado);
-		
-		resultado = miRegex1.validNumero(caracter2);
-		assertFalse(resultado);
-	}
-	
-	@Test
-	public void validMinusculaTest() {
-		String patron1 = "[a-z]";
-		Regex miRegex1 = new Regex(patron1);
-		
-		String caracter1 = "2";
-		String caracter2 = "a";
-		boolean resultado;
-		
-		resultado = miRegex1.validMinuscula(caracter2);
-		assertTrue(resultado);
-		
-		resultado = miRegex1.validMinuscula(caracter1);
-		assertFalse(resultado);
-	}
-	
-	@Test
-	public void validMayusculaTest() {
-		String patron1 = "[A-Z]";
-		Regex miRegex1 = new Regex(patron1);
-		
-		String caracter1 = "A";
-		String caracter2 = "a";
-		boolean resultado;
-		
-		resultado = miRegex1.validMayuscula(caracter1);
-		assertTrue(resultado);
-		
-		resultado = miRegex1.validMayuscula(caracter2);
-		assertFalse(resultado);
-	}
 
 }
