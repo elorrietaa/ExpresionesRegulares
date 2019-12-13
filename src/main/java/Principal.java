@@ -12,7 +12,8 @@ public class Principal {
 		System.out.println("Introduzca la expresión regular que desea utilizar: ");
 		patronIntroducido = reader.next();
 		
-		Regex miRegex = new Regex(patronIntroducido);
+		Reglas misReglas = new Reglas();
+		Regex miRegex = new Regex(patronIntroducido, misReglas);
 		
 		System.out.println("Introduzca la cadena que desea evaluar:");
 		cadenaIntroducida = reader.next();

@@ -1,4 +1,3 @@
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -39,7 +38,7 @@ public class ReglasTest {
 		assertEquals(resultado.size(), 2);
 		
 		resultado = misReglas5.validarPatron(patron5);
-		assertEquals(resultado, null);
+		assertEquals(resultado.size(), 0);
 		
 		resultado = misReglas6.validarPatron(patron6);
 		assertEquals(resultado.size(), 0);

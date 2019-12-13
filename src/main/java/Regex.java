@@ -8,9 +8,9 @@ public class Regex {
 	private final String validadorMinusculas= "[a-z]";
 	private ArrayList<String> validadores;
 	
-	public Regex(String patron) {
+	public Regex(String patron, Reglas misReglas) {
 		this.patron = patron;
-		this.misReglas = new Reglas();
+		this.misReglas = misReglas;
 	}
 	
 	public int validar(String cadena) {

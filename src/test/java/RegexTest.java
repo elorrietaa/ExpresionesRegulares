@@ -18,19 +18,14 @@ public class RegexTest {
 		ArrayList<String> arrayPatron1 = new ArrayList<String>();
 		arrayPatron1.add("[0-9]");
 		ArrayList<String> arrayPatron2 = new ArrayList<String>();
-		arrayPatron1.add("[a-z]");
+		arrayPatron2.add("[a-z]");
 		ArrayList<String> arrayPatron3 = new ArrayList<String>();
-		arrayPatron1.add("[A-Z]");
+		arrayPatron3.add("[A-Z]");
 		ArrayList<String> arrayPatron4 = new ArrayList<String>();
-		arrayPatron1.add("[0-9][a-z]");
+		arrayPatron4.add("[0-9]");
+		arrayPatron4.add("[a-z]");
 		
 		ArrayList<String> arrayPatron5 = new ArrayList<String>();
-		
-		Regex miRegex1 = new Regex(patron1);
-		Regex miRegex2 = new Regex(patron2);
-		Regex miRegex3 = new Regex(patron3);
-		Regex miRegex4 = new Regex(patron4);
-		Regex miRegex5 = new Regex(patron5);
 		
 		String numOk = "1";
 		String numNok = "a";
@@ -42,15 +37,21 @@ public class RegexTest {
 		Reglas reglasMock = mock(Reglas.class);
 		when(reglasMock.validNumero(numOk)).thenReturn(true);
 		when(reglasMock.validNumero(numNok)).thenReturn(false);
-		when(reglasMock.validNumero(mayOk)).thenReturn(true);
-		when(reglasMock.validNumero(mayNok)).thenReturn(false);
-		when(reglasMock.validNumero(minOk)).thenReturn(true);
-		when(reglasMock.validNumero(minNok)).thenReturn(false);
+		when(reglasMock.validMayuscula(mayOk)).thenReturn(true);
+		when(reglasMock.validMayuscula(mayNok)).thenReturn(false);
+		when(reglasMock.validMinuscula(minOk)).thenReturn(true);
+		when(reglasMock.validMinuscula(minNok)).thenReturn(false);
 		when(reglasMock.validarPatron(patron1)).thenReturn(arrayPatron1);
 		when(reglasMock.validarPatron(patron2)).thenReturn(arrayPatron2);
 		when(reglasMock.validarPatron(patron3)).thenReturn(arrayPatron3);
 		when(reglasMock.validarPatron(patron4)).thenReturn(arrayPatron4);
 		when(reglasMock.validarPatron(patron5)).thenReturn(arrayPatron5);
+		
+		Regex miRegex1 = new Regex(patron1, reglasMock);
+		Regex miRegex2 = new Regex(patron2, reglasMock);
+		Regex miRegex3 = new Regex(patron3, reglasMock);
+		Regex miRegex4 = new Regex(patron4, reglasMock);
+		Regex miRegex5 = new Regex(patron5, reglasMock);
 		
 		assertEquals(miRegex1.validar(numOk), 1);
 		assertEquals(miRegex1.validar(numNok), 0);
